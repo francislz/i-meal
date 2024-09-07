@@ -2,9 +2,9 @@
 
 ### Initial Setup
 
-- [ ] Create Github repository
-- [ ] Create a new React application
-- [ ] Setup eslint
+- [x] Create Github repository
+- [x] Create a new React application
+- [x] Setup eslint
 - [ ] Setup Jest
 - [ ] Setup husky for pre-commit and pre-push hooks
 - [ ] Setup github actions to run the tests, linting, etc
