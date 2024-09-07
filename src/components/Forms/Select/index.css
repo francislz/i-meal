@@ -1,14 +1,20 @@
 .select-container {
+  display: flex;
   cursor: pointer;
   min-width: 150px;
-}
-
-.select-button {
-  padding: 6px 8px;
   background: white;
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+
+.select-button {
+  flex:1;
+  padding: 6px 8px;
   text-align: start;
+}
+
+.select-icon {
+  padding: 6px 8px;
 }
 
 .select-menu {

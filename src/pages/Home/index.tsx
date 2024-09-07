@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Filters } from '../../components/Filters';
 import { Map } from '../../components/Map';
-import { useGetRequest } from '../../hooks/useGetRequest';
+import { IQueryParams, useGetRequest } from '../../hooks/useGetRequest';
 import { IFoodTruck } from '../../models/IFoodTruck';
 
 export function Home() {
-    const { data, loading, error } = useGetRequest<IFoodTruck[]>('https://data.sfgov.org/resource/rqzj-sfat.json?status=APPROVED');
+  const [queryParams, setQueryParams] = useState<IQueryParams | null>({ status: 'APPROVED' });
+  const [data, loading, error] = useGetRequest<IFoodTruck[]>('https://data.sfgov.org/resource/rqzj-sfat.json', queryParams);
 
   if (loading) {
     return <div>Loading...</div>
@@ -15,16 +16,19 @@ export function Home() {
     return <div>Error: {error.message}</div>
   }
 
-  if(data) {
-    console.log(data);
+  function onFiltersChange(queryParams: IQueryParams) {
+    // NOTE: Only update the query params if the value is different
+    setQueryParams(params => ({
+      ...params,
+      ...queryParams,
+    }));
   }
 
   return (
     <div>
-      <Filters data={data ?? []} />
+      <Filters onFiltersChange={onFiltersChange} data={data ?? []} />
       <Map foodTrucks={data ?? []} />
     </div>
-  )
-
+  );
 }
 
