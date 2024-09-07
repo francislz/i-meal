@@ -35,8 +35,8 @@ interface IFoodItem {
 }
 
 export function Filters({ onFiltersChange }: IFiltersProps) {
-  const [facilityTypes] = useGetRequest<IFacilityType[]>('https://data.sfgov.org/resource/rqzj-sfat.json', { $select: 'facilitytype', $group: 'facilitytype' });
-  const [foodItems] = useGetRequest<IFoodItem[]>('https://data.sfgov.org/resource/rqzj-sfat.json', { $select: 'fooditems', $group: 'fooditems' });
+  const [facilityTypes] = useGetRequest<IFacilityType[]>({ queryParams: { $select: 'facilitytype', $group: 'facilitytype' } });
+  const [foodItems] = useGetRequest<IFoodItem[]>({ queryParams: { $select: 'fooditems', $group: 'fooditems' } });
   const { filters, applyFilter } = useFilters();
 
   useEffect(() => {

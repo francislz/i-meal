@@ -5,8 +5,8 @@ import { IQueryParams, useGetRequest } from '../../hooks/useGetRequest';
 import { IFoodTruck } from '../../models/IFoodTruck';
 
 export function Home() {
-  const [queryParams, setQueryParams] = useState<IQueryParams | null>({ status: 'APPROVED' });
-  const [data, loading, error] = useGetRequest<IFoodTruck[]>('https://data.sfgov.org/resource/rqzj-sfat.json', queryParams);
+  const [queryParams, setQueryParams] = useState<IQueryParams>({ status: 'APPROVED' });
+  const [data, loading, error] = useGetRequest<IFoodTruck[]>({ queryParams });
 
   if (loading) {
     return <div>Loading...</div>
