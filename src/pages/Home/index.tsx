@@ -1,4 +1,5 @@
 import React from 'react'
+import { Filters } from '../../components/Filters';
 import { Map } from '../../components/Map';
 import { useGetRequest } from '../../hooks/useGetRequest';
 import { IFoodTruck } from '../../models/IFoodTruck';
@@ -20,6 +21,7 @@ export function Home() {
 
   return (
     <div>
+      <Filters data={data ?? []} />
       <Map foodTrucks={data ?? []} />
     </div>
   )
