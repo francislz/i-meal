@@ -21,7 +21,8 @@
     "lint": "eslint --ignore-pattern .gitignore",
     "test:coverage": "jest --coverage src/.",
     "test:sonar": "jest --coverage --testResultsProcessor=jest-sonar-reporter",
-    "test:watch": "jest --watchAll --detectOpenHandles"
+    "test:watch": "jest --watchAll --detectOpenHandles",
+    "prepare": "husky"
   },
   "eslintConfig": {
     "extends": [
@@ -42,6 +43,8 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.4.1",
+    "@commitlint/config-conventional": "^19.4.1",
     "@eslint/js": "^9.10.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.5.0",
@@ -50,6 +53,7 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.35.2",
     "globals": "^15.9.0",
+    "husky": "^9.1.5",
     "jest-environment-jsdom": "^29.7.0",
     "ts-jest": "^29.2.5",
     "typescript-eslint": "^8.4.0"

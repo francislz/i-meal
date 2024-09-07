@@ -5,8 +5,8 @@
 - [x] Create Github repository
 - [x] Create a new React application
 - [x] Setup eslint
-- [ ] Setup Jest
-- [ ] Setup husky for pre-commit and pre-push hooks
+- [x] Setup Jest
+- [x] Setup husky for pre-commit and pre-push hooks
 - [ ] Setup github actions to run the tests, linting, etc
 - [ ] Setup sonarcloud for code quality
 
