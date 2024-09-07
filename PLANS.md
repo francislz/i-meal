@@ -7,8 +7,8 @@
 - [x] Setup eslint
 - [x] Setup Jest
 - [x] Setup husky for pre-commit and pre-push hooks
-- [ ] Setup github actions to run the tests, linting, etc
-- [ ] Setup sonarcloud for code quality
+- [x] Setup github actions to run the tests, linting, etc
+- [ ] Setup sonarcloud for code quality (NOTE: Will handle this later)
 
 ### Development
 
