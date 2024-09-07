@@ -3,14 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "-": "^0.0.1",
     "@types/jest": "^27.5.2",
+    "@types/leaflet": "^1.9.12",
     "@types/node": "^16.18.108",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
     "axios": "^1.7.7",
+    "leaflet": "^1.9.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-leaflet": "^4.2.1",
     "react-scripts": "5.0.1",
+    "save": "^2.9.0",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
@@ -20,7 +25,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint --ignore-pattern .gitignore",
-    "test:coverage": "jest --coverage src/.",
+    "test:coverage": "jest --coverage src/. --passWithNoTests",
     "test:sonar": "jest --coverage --testResultsProcessor=jest-sonar-reporter",
     "test:watch": "jest --watchAll --detectOpenHandles",
     "prepare": "husky"

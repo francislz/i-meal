@@ -1,4 +1,5 @@
 import React from 'react'
+import { Map } from '../../components/Map';
 import { useGetRequest } from '../../hooks/useGetRequest';
 import { IFoodTruck } from '../../models/IFoodTruck';
 
@@ -19,7 +20,7 @@ export function Home() {
 
   return (
     <div>
-      Home
+      <Map foodTrucks={data ?? []} />
     </div>
   )
 
