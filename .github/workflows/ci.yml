@@ -19,8 +19,8 @@ jobs:
         run: npm install
       - name: Prepare
         run: npm run prepare
-      - name: lint
+      - name: Lint 
         run: npm run lint
-      - name: sonar report
-        run: npm run test:sonar
+      - name: Unit Tests
+        run: npm run test:coverage
 
