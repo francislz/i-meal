@@ -19,7 +19,7 @@
 - [x] Create components and basic structure to use OpenMap API to display the food trucks on a map
 - [x] Create filters to filter the food trucks by name, type, etc
 - [x] Improve input search filter to block only do the requests when user finished typing
-- [ ] Display more informations about the food truck when user clicks on it on the map
-- [ ] Implement unit tests when its applicable
-- [ ] Deploy the application to a cloud provider (NOTE: Will handle this later)
-
+- [x] Display more informations about the food truck when user clicks on it on the map
+- [x] Implement unit tests when its applicable
+- [ ] Deploy the application to a cloud provider
+   - Might do it later if I have spare time
