@@ -2,10 +2,10 @@ import { faBowlFood, faTruck } from '@fortawesome/free-solid-svg-icons';
 import React, { useEffect } from 'react'
 import { useFilters } from '../../hooks/useFilters';
 import { IQueryParams, useGetRequest } from '../../hooks/useGetRequest';
-import { IFilters } from '../../models/IFilters';
 import { IFoodTruck } from '../../models/IFoodTruck';
 import { Select } from '../Forms/Select';
 import './index.css';
+import { buildQueryParamsFromFilters, formatFoodItems } from './utils';
 
 
 interface IFiltersProps {
@@ -13,30 +13,18 @@ interface IFiltersProps {
   onFiltersChange: (queryParams: IQueryParams) => void;
 }
 
-/** Transform filters to url using SODA syntax
-  */
-function buildQueryParamsFromFilters(filters: IFilters) {
-  const queryParams: IQueryParams = { };
-  if (filters.facilityType.length) {
-    queryParams.$where = `facilitytype in ('${filters.facilityType.join("','")}')`;
-  }
-  if (filters.foodItems.length) {
-    queryParams.$where = `fooditems like '%${filters.foodItems.join("%' and fooditems like '%")}%'`;
-  }
-  return queryParams;
-}
 
-interface IFacilityType {
+export interface IFacilityType {
   facilitytype: string;
 }
 
-interface IFoodItem {
+export interface IFoodItem {
   fooditems: string;
 }
 
 export function Filters({ onFiltersChange }: IFiltersProps) {
-  const [facilityTypes] = useGetRequest<IFacilityType[]>({ queryParams: { $select: 'facilitytype', $group: 'facilitytype' } });
-  const [foodItems] = useGetRequest<IFoodItem[]>({ queryParams: { $select: 'fooditems', $group: 'fooditems' } });
+  const [facilityTypes] = useGetRequest<IFacilityType[]>({ queryParams: { $select: 'facilitytype', status: 'APPROVED', $group: 'facilitytype' } });
+  const [foodItems] = useGetRequest<IFoodItem[]>({ queryParams: { $select: 'fooditems', status: 'APPROVED', $group: 'fooditems' } });
   const { filters, applyFilter } = useFilters();
 
   useEffect(() => {
@@ -56,7 +44,7 @@ export function Filters({ onFiltersChange }: IFiltersProps) {
         label='Menu items' 
         menuIcon={faBowlFood}
         onChange={(selectedItems) => applyFilter('foodItems', selectedItems)}
-        items={foodItems?.map(f => f.fooditems) ?? []} 
+        items={formatFoodItems(foodItems ?? [])} 
         isMultiselect
       />
     </div>
