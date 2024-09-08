@@ -5,6 +5,7 @@ import { IQueryParams, useGetRequest } from '../../hooks/useGetRequest';
 import { IFoodTruck } from '../../models/IFoodTruck';
 import { Select } from '../Forms/Select';
 import './index.css';
+import { facilityTypesQuery, foodItemsQuery } from './queries';
 import { buildQueryParamsFromFilters, formatFoodItems } from './utils';
 
 
@@ -12,7 +13,6 @@ interface IFiltersProps {
   data: IFoodTruck[];
   onFiltersChange: (queryParams: IQueryParams) => void;
 }
-
 
 export interface IFacilityType {
   facilitytype: string;
@@ -23,8 +23,8 @@ export interface IFoodItem {
 }
 
 export function Filters({ onFiltersChange }: IFiltersProps) {
-  const [facilityTypes] = useGetRequest<IFacilityType[]>({ queryParams: { $select: 'facilitytype', status: 'APPROVED', $group: 'facilitytype' } });
-  const [foodItems] = useGetRequest<IFoodItem[]>({ queryParams: { $select: 'fooditems', status: 'APPROVED', $group: 'fooditems' } });
+  const [facilityTypes] = useGetRequest<IFacilityType[]>({ queryParams: facilityTypesQuery });
+  const [foodItems] = useGetRequest<IFoodItem[]>({ queryParams: foodItemsQuery });
   const { filters, applyFilter } = useFilters();
 
   useEffect(() => {
