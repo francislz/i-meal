@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Filters } from '../../components/Filters';
-import { Map } from '../../components/Map';
+import { FoodTruckMap } from '../../components/FoodTruckMap';
 import { IQueryParams, useGetRequest } from '../../hooks/useGetRequest';
 import { IFoodTruck } from '../../models/IFoodTruck';
 
@@ -26,8 +26,8 @@ export function Home() {
 
   return (
     <div>
-      <Filters onFiltersChange={onFiltersChange} data={data ?? []} />
-      <Map foodTrucks={data ?? []} />
+      <Filters onFiltersChange={onFiltersChange}/>
+      <FoodTruckMap foodTrucks={data ?? []} />
     </div>
   );
 }

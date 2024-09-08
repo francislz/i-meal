@@ -4,13 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './index.css';
 
 interface IInputProps {
-  leftIcon?: IconDefinition;
-  rightIcon?: IconDefinition;
-  placeholder?: string;
-  value: string;
-  hideLeftIcon?: boolean;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onIconClick?: () => void;
+  readonly leftIcon?: IconDefinition;
+  readonly rightIcon?: IconDefinition;
+  readonly placeholder?: string;
+  readonly value: string;
+  readonly hideLeftIcon?: boolean;
+  readonly onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  readonly onIconClick?: () => void;
 }
 
 export function Input({ 

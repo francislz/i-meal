@@ -3,7 +3,6 @@ import { faBowlFood, faSearch, faTruck, faX } from '@fortawesome/free-solid-svg-
 import { useFilters } from '../../hooks/useFilters';
 import { IQueryParams, useGetRequest } from '../../hooks/useGetRequest';
 import { useQuickSearchTimer } from '../../hooks/useQuickSearchTimer';
-import { IFoodTruck } from '../../models/IFoodTruck';
 import { Form } from '../Forms';
 import './index.css';
 import { facilityTypesQuery, foodItemsQuery } from './queries';
@@ -11,8 +10,7 @@ import { buildQueryParamsFromFilters, formatFoodItems } from './utils';
 
 
 interface IFiltersProps {
-  data: IFoodTruck[];
-  onFiltersChange: (queryParams: IQueryParams) => void;
+  readonly onFiltersChange: (queryParams: IQueryParams) => void;
 }
 
 export interface IFacilityType {

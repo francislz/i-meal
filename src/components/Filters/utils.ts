@@ -36,7 +36,7 @@ export function formatFoodItems(foodItems: IFoodItem[]) {
 
   const uniqueItems = Array.from(set);
   return uniqueItems
-    .map(i => i.replace(/(a|A)nd/g, '').trim())
+    .map(i => i.replace(/[aA]nd/g, '').trim())
     .map(capitalizeWords)
-    .sort();
+    .sort((a, b) => a.localeCompare(b));
 }

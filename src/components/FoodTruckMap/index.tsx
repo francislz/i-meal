@@ -2,7 +2,7 @@ import React from 'react'
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 import { IFoodTruck } from '../../models/IFoodTruck'
 
-export function Map({
+export function FoodTruckMap({
   foodTrucks
 }: { foodTrucks: IFoodTruck[] }) {
   return (

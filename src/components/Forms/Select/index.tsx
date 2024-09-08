@@ -5,11 +5,11 @@ import React from 'react'
 import './index.css';
 
 interface ISelectProps {
-  items: string[];
-  label: string;
-  isMultiselect?: boolean;
-  menuIcon: IconDefinition;
-  onChange?: (selectedItems: string[]) => void;
+  readonly items: string[];
+  readonly label: string;
+  readonly isMultiselect?: boolean;
+  readonly menuIcon: IconDefinition;
+  readonly onChange?: (selectedItems: string[]) => void;
 }
 
 export function Select({ items, label, isMultiselect, menuIcon, onChange }: ISelectProps) {
@@ -48,8 +48,8 @@ export function Select({ items, label, isMultiselect, menuIcon, onChange }: ISel
         </div>
       </div>
       {open && <div className='select-menu'>
-        {items.map((item, index) => (
-          <div key={index} className='select-item' onClick={(e) => onItemClick(e, item)}>
+        {items.map((item) => (
+          <div key={item} className='select-item' onClick={(e) => onItemClick(e, item)}>
             {isMultiselect && <input type='checkbox' checked={selectedItems.includes(item)} readOnly/>}
             {item}
           </div>
