@@ -18,7 +18,7 @@
 - [x] Create a service layer to fetch the food truck data (regardless if its from a public API or csv)
 - [x] Create components and basic structure to use OpenMap API to display the food trucks on a map
 - [x] Create filters to filter the food trucks by name, type, etc
-- [ ] Improve input search filter to block only do the requests when user finished typing
+- [x] Improve input search filter to block only do the requests when user finished typing
 - [ ] Display more informations about the food truck when user clicks on it on the map
 - [ ] Implement unit tests when its applicable
 - [ ] Deploy the application to a cloud provider (NOTE: Will handle this later)

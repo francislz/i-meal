@@ -14,7 +14,9 @@ export function Map({
       {foodTrucks?.map(truck => (
         <Marker key={truck.objectid} position={[Number(truck.latitude), Number(truck.longitude)]}>
           <Popup>
-            {truck.applicant}
+            <h3>{truck.applicant}</h3>
+            <p>{truck.address}</p>
+            <p>{truck.fooditems}</p>
           </Popup>
         </Marker>
       ))}
