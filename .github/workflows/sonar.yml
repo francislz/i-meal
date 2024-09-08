@@ -7,6 +7,7 @@ on:
     types: [opened, synchronize, reopened]
 jobs:
   sonarcloud:
+    environment: production 
     name: SonarCloud
     runs-on: ubuntu-latest
     steps:
@@ -17,4 +18,4 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ env.SONAR_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
