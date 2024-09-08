@@ -1,8 +1,9 @@
 import { useState } from 'react';
+import { IFilters } from '../../models/IFilters';
 
 export function useFilters() {
-  const [filters, setFilters] = useState({
-    content: '',
+  const [filters, setFilters] = useState<IFilters>({
+    search: '',
     foodItems: [],
     facilityType: [],
   });

@@ -1,5 +1,5 @@
 export interface IFilters {
-  content: string;
+  search: string;
   foodItems: string[];
   facilityType: string[];
 }

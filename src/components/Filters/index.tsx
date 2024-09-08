@@ -1,9 +1,9 @@
-import { faBowlFood, faTruck } from '@fortawesome/free-solid-svg-icons';
+import { faBowlFood, faSearch, faTruck, faX } from '@fortawesome/free-solid-svg-icons';
 import React, { useEffect } from 'react'
 import { useFilters } from '../../hooks/useFilters';
 import { IQueryParams, useGetRequest } from '../../hooks/useGetRequest';
 import { IFoodTruck } from '../../models/IFoodTruck';
-import { Select } from '../Forms/Select';
+import { Form } from '../Forms';
 import './index.css';
 import { facilityTypesQuery, foodItemsQuery } from './queries';
 import { buildQueryParamsFromFilters, formatFoodItems } from './utils';
@@ -33,14 +33,23 @@ export function Filters({ onFiltersChange }: IFiltersProps) {
 
   return (
     <div className='filters-container'>
-      <Select 
+      <Form.Input
+        value={filters.search}
+        onChange={(e) => applyFilter('search', e.target.value)}
+        onIconClick={() => applyFilter('search', '')}
+        placeholder='Search food trucks by name, address, or food items'
+        hideLeftIcon={filters.search.length === 0}
+        leftIcon={faSearch}
+        rightIcon={faX}
+      />
+      <Form.Select 
         label='Type' 
         menuIcon={faTruck}
         items={facilityTypes?.map(f => f.facilitytype) ?? []}
         onChange={(selectedItems) => applyFilter('facilityType', selectedItems)}
         isMultiselect
       />
-      <Select
+      <Form.Select
         label='Menu items' 
         menuIcon={faBowlFood}
         onChange={(selectedItems) => applyFilter('foodItems', selectedItems)}

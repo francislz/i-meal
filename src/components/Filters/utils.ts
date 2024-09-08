@@ -6,11 +6,15 @@ import { capitalizeWords } from "../../utils/string";
 export function buildQueryParamsFromFilters(filters: IFilters) {
   const queryParams: IQueryParams = { };
   const where = [];
-  if (filters.facilityType.length) {
-    where.push(`facilitytype in ('${filters.facilityType.join("','")}')`);
-  }
-  if (filters.foodItems.length) {
-    where.push(`fooditems like '%${filters.foodItems.join("%' or fooditems like '%")}%'`);
+  if (filters.search.length > 3) {
+    where.push(`applicant like '%${filters.search}%' or locationdescription like '%${filters.search}%' or fooditems like '%${filters.search}%'`);
+  } else {
+    if (filters.facilityType.length) {
+      where.push(`facilitytype in ('${filters.facilityType.join("','")}')`);
+    }
+    if (filters.foodItems.length) {
+      where.push(`fooditems like '%${filters.foodItems.join("%' or fooditems like '%")}%'`);
+    }
   }
   if (where.length) {
     queryParams.$where = where.join(' and ');
