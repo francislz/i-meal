@@ -30,7 +30,7 @@
     "lint": "eslint --ignore-pattern .gitignore",
     "test:coverage": "jest --coverage src/. --passWithNoTests",
     "test:sonar": "jest --coverage --testResultsProcessor=jest-sonar-reporter",
-    "test:watch": "jest --watchAll --detectOpenHandles",
+    "test:watch": "jest --watchAll --coverage --detectOpenHandles",
     "prepare": "husky"
   },
   "eslintConfig": {

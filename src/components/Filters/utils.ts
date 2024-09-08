@@ -5,11 +5,15 @@ import { capitalizeWords } from "../../utils/string";
 
 export function buildQueryParamsFromFilters(filters: IFilters) {
   const queryParams: IQueryParams = { };
+  const where = [];
   if (filters.facilityType.length) {
-    queryParams.$where = `facilitytype in ('${filters.facilityType.join("','")}')`;
+    where.push(`facilitytype in ('${filters.facilityType.join("','")}')`);
   }
   if (filters.foodItems.length) {
-    queryParams.$where = `fooditems like '%${filters.foodItems.join("%' or fooditems like '%")}%'`;
+    where.push(`fooditems like '%${filters.foodItems.join("%' or fooditems like '%")}%'`);
+  }
+  if (where.length) {
+    queryParams.$where = where.join(' and ');
   }
   return queryParams;
 }
@@ -30,7 +34,7 @@ export function formatFoodItems(foodItems: IFoodItem[]) {
 
   const uniqueItems = Array.from(set);
   return uniqueItems
-    .map(i => i.replace(/(a|A)nd/g, ''))
+    .map(i => i.replace(/(a|A)nd/g, '').trim())
     .map(capitalizeWords)
     .sort();
 }
