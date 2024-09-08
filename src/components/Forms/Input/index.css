@@ -6,6 +6,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   max-width: fit-content;
+  height: 35px;
 
   & > input[type="text"] {
     border: none;

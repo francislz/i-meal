@@ -7,7 +7,7 @@ export function buildQueryParamsFromFilters(filters: IFilters) {
   const queryParams: IQueryParams = { };
   const where = [];
   if (filters.search.length) {
-    where.push(`applicant like '%${filters.search}%' or locationdescription like '%${filters.search}%' or fooditems like '%${filters.search}%'`);
+    where.push(`applicant like '%${filters.search.toUpperCase()}%' or locationdescription like '%${filters.search.toUpperCase()}%' or fooditems like '%${capitalizeWords(filters.search)}%'`);
   } else {
     if (filters.facilityType.length) {
       where.push(`facilitytype in ('${filters.facilityType.join("','")}')`);
