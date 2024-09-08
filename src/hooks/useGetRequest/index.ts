@@ -31,7 +31,6 @@ export function useGetRequest<T>({ path, queryParams }: IGetRequestArgs): [T | n
       setData(response.data);
     } catch (error) {
       setError(error as Error);
-      console.error(error);
     } finally {
       setLoading(false);
     }

@@ -1,7 +1,8 @@
+import React from 'react'
 import { faBowlFood, faSearch, faTruck, faX } from '@fortawesome/free-solid-svg-icons';
-import React, { useEffect } from 'react'
 import { useFilters } from '../../hooks/useFilters';
 import { IQueryParams, useGetRequest } from '../../hooks/useGetRequest';
+import { useQuickSearchTimer } from '../../hooks/useQuickSearchTimer';
 import { IFoodTruck } from '../../models/IFoodTruck';
 import { Form } from '../Forms';
 import './index.css';
@@ -27,9 +28,9 @@ export function Filters({ onFiltersChange }: IFiltersProps) {
   const [foodItems] = useGetRequest<IFoodItem[]>({ queryParams: foodItemsQuery });
   const { filters, applyFilter } = useFilters();
 
-  useEffect(() => {
+  useQuickSearchTimer(() => {
     onFiltersChange(buildQueryParamsFromFilters(filters));
-  }, [filters]);
+  }, [filters], 300);
 
   return (
     <div className='filters-container'>
