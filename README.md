@@ -34,3 +34,34 @@ Your assignment is to make it possible for our teams to do something interesting
 
 This is a freeform assignment. You can write a web API that returns a set of food trucks. You can write a web frontend that visualizes the nearby food trucks for a given place. You can create a CLI that lets us get the names of all the taco trucks in the city. You can create system that spits out a container with a placeholder webpage featuring the name of each food truck to help their marketing efforts. You're not limited by these ideas at all, but hopefully those are enough help spark your own creativity.
 San Francisco's food truck open dataset is [located here](https://data.sfgov.org/Economy-and-Community/Mobile-Food-Facility-Permit/rqzj-sfat/data) and there is an endpoint with a [CSV dump of the latest data here](https://data.sfgov.org/api/views/rqzj-sfat/rows.csv). We've also included a copy of the data in this repo as well.
+
+## Final considerations
+
+### Features
+
+1. The system should be able to fetch the data from the API and display it on a open street map.
+2. The system should be able to filter the data by food truck name, food items, and location.
+3. The system should be able to display the food truck details when clicked on the map.
+
+### Technologies
+
+1. The system should be built using ReactJS.
+2. OpenStreetMap should be used to display the food trucks on the map.
+
+### Patterns
+
+1. Custom hooks should be used to fetch the data from the API, handle state management and filter the data.
+2. The system should be built using functional components and hooks.
+
+### CI/CD
+
+1. Github Actions is used for unit tests, linting and sonarqube analysis.
+2. Sonar Cloud is used for code quality analysis.
+
+### Running the project
+
+1. Clone the repository.
+2. Run `npm install` to install the dependencies.
+3. Run `npm start` to start the development server.
+4. Access the application on `http://localhost:3000`.
+
