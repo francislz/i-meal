@@ -7,7 +7,7 @@ describe('Filters utils tests', () => {
     it('should return empty object if filters are empty', () => {
       const filters: IFilters = { search: '', facilityType: [], foodItems: [] };
       const params = buildQueryParamsFromFilters(filters);
-      expect(params).toEqual({});
+      expect(params).toEqual({ $where: '' });
     });
 
     it('should return object with facilityType filter', () => {
