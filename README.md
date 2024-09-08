@@ -43,6 +43,12 @@ San Francisco's food truck open dataset is [located here](https://data.sfgov.org
 2. The system should be able to filter the data by food truck name, food items, and location.
 3. The system should be able to display the food truck details when clicked on the map.
 
+### Code quality
+
+1. ESLint should be used to enforce code pattern.
+2. Husky should be used to enforce the linting before commit and successful tests before push.
+3. Jest is used for some unit tests.
+
 ### Technologies
 
 1. The system should be built using ReactJS.
